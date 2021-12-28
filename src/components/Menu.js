@@ -1,10 +1,14 @@
 import React from "react"
+import MenuItem from "./MenuItem"
 
 const Menu = () => {
 
     return(
-        <div>
-            <h1>Menu</h1>
+        <div id="menu-items-container">
+            <MenuItem/>
+            <MenuItem/>
+            <MenuItem/>
+            <MenuItem/>
         </div>
     )
 }

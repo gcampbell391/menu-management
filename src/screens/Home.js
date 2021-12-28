@@ -7,7 +7,7 @@ const Home = () => {
     return(
         <div>
             <Header/>
-            <h1>Menu Title</h1>
+            <h1>Woodstock Bar & Grill</h1>
             <Menu/>
         </div>
     )

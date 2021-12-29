@@ -40,7 +40,7 @@ const MenuItem = (props) => {
 
     return(
         <div>
-        <Card sx={{ width: 345, margin: 5, height:450}}>
+        <Card  id="menu-item-card" sx={{ width: 345, margin: 5, height:450}}>
             <CardMedia
                 component="img"
                 height="240"

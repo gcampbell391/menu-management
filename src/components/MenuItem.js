@@ -8,15 +8,31 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteConfirmation from "./DeleteConfirmation";
+import EditItemForm from "./EditItemForm";
 
 const MenuItem = (props) => {
 
     const [openDeleteConfirmation, setOpenDeleteConfirmation] = useState(false)
+    const [openEditItemForm, setOpenEditItemForm] = useState(false)
 
+    //Close the delete confirmation dialog
     const closeDeleteConfirmation = () => {
         setOpenDeleteConfirmation(false)
     }
 
+    //Close edit item form dialog
+    const closeEditItemForm = () => {
+        setOpenEditItemForm(false)
+    }
+
+    //Close the edit form dialog and handle updating an item
+    const handleEditItemClick = (updatedItem) => {
+        setOpenEditItemForm(false)
+        props.handleEditItem(updatedItem)
+
+    }
+
+    //Close the delete confirmation dialog and handle deleting the item
     const handleDeleteItemClick = () => {
         setOpenDeleteConfirmation(false)
         props.handleDeleteItem(props.menuItem)
@@ -44,12 +60,13 @@ const MenuItem = (props) => {
             </CardContent>
             <div id="menu-item-card-buttons">
             <CardActions>
-                <Button size="small" startIcon={<EditIcon />} onClick={() => props.handleEditItem(props.menuItem)}>Edit</Button>
+                <Button size="small" startIcon={<EditIcon />} onClick={() => setOpenEditItemForm(true)}>Edit</Button>
                 <Button  size="small" startIcon={<DeleteIcon />} onClick={() => setOpenDeleteConfirmation(true)}>Delete</Button>
             </CardActions>
             </div>
         </Card>
         <DeleteConfirmation openDeleteConfirmation={openDeleteConfirmation} closeDeleteConfirmation={closeDeleteConfirmation} handleDeleteItemClick={handleDeleteItemClick}/>
+        <EditItemForm menuItem={props.menuItem} openEditItemForm={openEditItemForm} closeEditItemForm={closeEditItemForm} handleEditItemClick={handleEditItemClick}/>
         </div>
     )
 }

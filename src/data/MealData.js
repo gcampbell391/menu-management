@@ -1,6 +1,6 @@
 
-export const LunchMenu = {
-    menuTitle: "lunch",
+export const Lunch = {
+    menuType: "Lunch",
     menuItems: [
         {
             id: 1,
@@ -43,6 +43,32 @@ export const LunchMenu = {
             description: "Freshed tossed dough topped with local garden vegetables, Italian seasonings, and mozzarella cheese.",
             price: "13.50",
             image: "https://i.ibb.co/ZLkNkyw/flatbread-Pizza.jpg"
+        }
+    ]
+}
+
+export const Dinner = {
+    menuType: "Dinner",
+    menuItems: [
+        {
+            id: 1,
+            name: "Cheeseburger",
+            description: "An extremely popular sandwich consisting of one or more meat patties placed in a bun with American cheese.",
+            price: "14.99",
+            image: "https://i.ibb.co/hYzy23C/pexels-photo-1639557.jpg"
+        }
+    ]
+}
+
+export const Drink = {
+    menuType: "Drink",
+    menuItems: [
+        {
+            id: 1,
+            name: "Cheeseburger",
+            description: "An extremely popular sandwich consisting of one or more meat patties placed in a bun with American cheese.",
+            price: "14.99",
+            image: "https://i.ibb.co/hYzy23C/pexels-photo-1639557.jpg"
         }
     ]
 }

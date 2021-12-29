@@ -6,34 +6,17 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import AddIcon from '@mui/icons-material/Add';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const NewItemForm = (props) => {
-    const [open, setOpen] = useState(false);
-    const [itemName, setItemName] = useState("")
-    const [price, setPrice] = useState("")
-    const [description, setDescription] = useState("")
-    const [imageURL, setImageURL] = useState("")
+const EditItemForm = (props) => {
+    const [itemName, setItemName] = useState(props.menuItem.name)
+    const [price, setPrice] = useState(props.menuItem.price)
+    const [description, setDescription] = useState(props.menuItem.description)
+    const [imageURL, setImageURL] = useState(props.menuItem.image)
 
-
-    //Handles opening the Dialog Form
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    //Handles closing the Dialog Form
-    const handleClose = () => {
-        setItemName("");
-        setPrice("");
-        setDescription("");
-        setImageURL("");
-        setOpen(false);
-    };
-
-    //Handles adding an item in the Dialog Form
-    const handleAddItemClick = () => {
+    //Handles updating an item and passing it back
+    const handleUpdateItemClick = () => {
         //Present notification if the item name is missing
         if(itemName === ""){
             return toast.dark("Please Enter An Item Name.");
@@ -51,32 +34,24 @@ const NewItemForm = (props) => {
             return toast.dark("Please Enter An Image URL.");
         }
         else{
-            const newItem = {
-                id: props.currentIndex + 1,
+            const updatedItem = {
+                id: props.menuItem.id,
                 name: itemName, 
                 description: description,
                 price: price,
                 image: imageURL
             }
-            setItemName("");
-            setPrice("");
-            setDescription("");
-            setImageURL("");
-            setOpen(false)
-            props.handleAddItem(newItem)
+            props.handleEditItemClick(updatedItem)
         } 
     }
 
     return (
         <div>
-        <Button variant="outlined" color="success" startIcon={<AddIcon />} onClick={handleClickOpen}>
-            Add New Item
-        </Button>
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Add New Item</DialogTitle>
+        <Dialog open={props.openEditItemForm} onClose={props.closeEditItemForm}>
+            <DialogTitle>Update {props.menuItem.name}</DialogTitle>
             <DialogContent>
             <DialogContentText>
-                Please fill out all the fields below to add a new item to your menu.
+                Please ensure all fields are completed.
             </DialogContentText>
             <TextField
                 autoFocus
@@ -127,8 +102,8 @@ const NewItemForm = (props) => {
             />
             </DialogContent>
             <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleAddItemClick}>Add Item</Button>
+            <Button onClick={props.closeEditItemForm}>Cancel</Button>
+            <Button onClick={handleUpdateItemClick}>Update</Button>
             </DialogActions>
         </Dialog>
         <ToastContainer />
@@ -136,5 +111,5 @@ const NewItemForm = (props) => {
     );
 }
 
-export default NewItemForm
+export default EditItemForm
 

@@ -57,6 +57,7 @@ const NewItemForm = (props) => {
         }
         else{
             const newItem = {
+                id: props.currentIndex + 1,
                 name: itemName, 
                 description: description,
                 price: price,

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,10 +7,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteConfirmation from "./DeleteConfirmation";
 
 const MenuItem = (props) => {
 
+    const [openDeleteConfirmation, setOpenDeleteConfirmation] = useState(false)
+
+    const closeDeleteConfirmation = () => {
+        setOpenDeleteConfirmation(false)
+    }
+
+    const handleDeleteItemClick = () => {
+        setOpenDeleteConfirmation(false)
+        props.handleDeleteItem(props.menuItem)
+    }
+
     return(
+        <div>
         <Card sx={{ width: 345, margin: 5, height:450}}>
             <CardMedia
                 component="img"
@@ -32,10 +45,12 @@ const MenuItem = (props) => {
             <div id="menu-item-card-buttons">
             <CardActions>
                 <Button size="small" startIcon={<EditIcon />} onClick={() => props.handleEditItem(props.menuItem)}>Edit</Button>
-                <Button  size="small" startIcon={<DeleteIcon />} onClick={() => props.handleDeleteItem(props.menuItem)}>Delete</Button>
+                <Button  size="small" startIcon={<DeleteIcon />} onClick={() => setOpenDeleteConfirmation(true)}>Delete</Button>
             </CardActions>
             </div>
         </Card>
+        <DeleteConfirmation openDeleteConfirmation={openDeleteConfirmation} closeDeleteConfirmation={closeDeleteConfirmation} handleDeleteItemClick={handleDeleteItemClick}/>
+        </div>
     )
 }
 

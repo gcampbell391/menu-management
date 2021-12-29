@@ -6,9 +6,9 @@ const Home = (props) => {
 
     return(
         <div>
-            <Header handleAddItem={props.handleAddItem}/>
+            <Header handleAddItem={props.handleAddItem} currentIndex={props.currentIndex}/>
             <h1>Woodstock Bar & Grill</h1>
-            <Menu currentMenu={props.currentMenu} handleEditItem={props.handleEditItem} handleDeleteItem={props.handleDeleteItem}/>
+            <Menu currentMenu={props.currentMenu} handleEditItem={props.handleEditItem} handleDeleteItem={props.handleDeleteItem} />
         </div>
     )
 }

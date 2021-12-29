@@ -8,11 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const [currentMenu, setCurrentMenu] = useState(LunchMenu.menuItems);
+  const [currentIndex, setCurrentIndex] = useState(currentMenu.length)
 
   //Handle adding a new item to the menu
   const handleAddItem = (menuItem) => {
     setCurrentMenu(menu => [...menu, menuItem ])
-    return toast.dark(`${menuItem.name} Have Been Added To The Menu!`, {
+    console.log(currentMenu)
+    setCurrentIndex(currentIndex + 1)
+    return toast.dark(`${menuItem.name} were added to the menu!`, {
       pauseOnHover: true
   });
   }
@@ -25,8 +28,11 @@ function App() {
 
     //Handle deleting an existing item 
     const handleDeleteItem = (menuItem) => {
-      console.log(`Delete ${menuItem.name}`)
-      console.log(menuItem)
+      const updatedMenu = currentMenu.filter(item => item.id !== menuItem.id)
+      setCurrentMenu(updatedMenu)
+      return toast.dark(`${menuItem.name} were removed from the menu.`, {
+        pauseOnHover: true
+    });
     }
 
   return (
@@ -36,6 +42,7 @@ function App() {
         handleEditItem={handleEditItem} 
         handleDeleteItem={handleDeleteItem}
         currentMenu={currentMenu}
+        currentIndex={currentIndex}
       />
       <ToastContainer />
     </div>

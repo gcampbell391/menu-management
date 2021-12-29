@@ -10,7 +10,7 @@ const Header = (props) => {
                 <h1>Menu Management</h1>
             </div>
             <div id="header-flex-box-right">
-                <NewItemForm handleAddItem={props.handleAddItem}/>
+                <NewItemForm handleAddItem={props.handleAddItem} currentIndex={props.currentIndex}/>
             </div>
         </div>
     )

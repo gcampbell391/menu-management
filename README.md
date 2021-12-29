@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Menu Management
 A front end application built to manage menus for restuarants. 
 
 A user can:
@@ -7,6 +7,8 @@ A user can:
 - Edit an existing menu item
 - Delete an exisiting menu item
 - Navigate between different menus
+
+There is no backend, API, or database involved. All of the data manipulation is controlled through state management using React Hooks and a static data file.
 
 # Built With
 

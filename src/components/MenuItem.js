@@ -5,12 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 const MenuItem = (props) => {
 
-    console.log(props.menuItem)
     return(
-        <Card sx={{ maxWidth: 345, margin: 5}}>
+        <Card sx={{ width: 345, margin: 5, height:450}}>
             <CardMedia
                 component="img"
                 height="240"
@@ -28,9 +29,12 @@ const MenuItem = (props) => {
                 {props.menuItem && props.menuItem.description ? props.menuItem.description : "N/A"}
                 </Typography>
             </CardContent>
+            <div id="menu-item-card-buttons">
             <CardActions>
-                <Button size="small">Edit</Button>
+                <Button size="small" startIcon={<EditIcon />} onClick={() => props.handleEditItem(props.menuItem)}>Edit</Button>
+                <Button  size="small" startIcon={<DeleteIcon />} onClick={() => props.handleDeleteItem(props.menuItem)}>Delete</Button>
             </CardActions>
+            </div>
         </Card>
     )
 }

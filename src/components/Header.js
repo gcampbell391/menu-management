@@ -1,6 +1,8 @@
 import React from "react"
+import NewItemForm from "./NewItemForm";
 
-const Header = () => {
+
+const Header = (props) => {
 
     return(
         <div id="header-flex-box">
@@ -8,7 +10,7 @@ const Header = () => {
                 <h1>Menu Management</h1>
             </div>
             <div id="header-flex-box-right">
-                <h1>NavBar</h1>
+                <NewItemForm handleAddItem={props.handleAddItem}/>
             </div>
         </div>
     )

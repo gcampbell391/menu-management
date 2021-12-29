@@ -20,6 +20,7 @@
   width: 50%;
   text-align: right;
   padding-right: 50px;
+  padding-top: 20px;
 }
 
 #menu-items-container{
@@ -28,3 +29,32 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+@media only screen and (max-width: 700px) {
+  #header-flex-box{
+    height: 100px
+  }
+  #header-flex-box-left{
+    width: 70%;
+    padding-left: 20px;
+  }
+
+  #header-flex-box-right{
+    width: 30%;
+    padding-top: 30px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  
+  #header-flex-box-left{
+    padding-top: 5px;
+  }
+
+  #header-flex-box-right{
+    padding-top: 15px;
+  }
+}
+
+

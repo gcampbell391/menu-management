@@ -22,9 +22,24 @@ export const LunchMenu = {
         },
         {
             name: "Wings",
-            description: "Chicken wings coated with a vinegar-and-cayenne-pepper hot sauce mixed with butter.",
+            description: "Chicken wings coated with a vinegar-and-cayenne-pepper hot sauce mixed with butter and topped with parsley.",
             price: "14.00",
             image: "https://i.ibb.co/gynPP87/wings.jpg"
+        },
+        {
+            name: "Sweet Fries",
+            description: "Wedges of sweet potatoes, tossed with oil, sprinkled with spices, and baked at high heat until browned and crispy at the edges.",
+            price: "5.99",
+            image: "https://i.ibb.co/grR9S7J/sweetFry.jpg"
+        },
+        {
+            name: "Flatbread Pizza",
+            description: "Freshed tossed dough topped with local garden vegetables, Italian seasonings, and mozzarella cheese.",
+            price: "13.50",
+            image: "https://i.ibb.co/ZLkNkyw/flatbread-Pizza.jpg"
         }
     ]
 }
+
+
+

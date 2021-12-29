@@ -7,6 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
+  const [currentLunchMenu, setCurrentLunchMenu] = useState(Lunch.menuItems)
+  const [currentDinnerMenu, setCurrentDinnerMenu] = useState(Dinner.menuItems)
+  const [currentDrinkMenu, setCurrentDrinkMenu] = useState(Drink.menuItems)
   const [currentMenu, setCurrentMenu] = useState(Lunch.menuItems);
   const [currentMenuType, setCurrentMenuType] = useState(Lunch.menuType);
   const [currentIndex, setCurrentIndex] = useState(currentMenu.length)
@@ -14,7 +17,19 @@ function App() {
   //Handle adding a new item to the menu
   const handleAddItem = (menuItem) => {
     setCurrentMenu(menu => [...menu, menuItem ])
-    console.log(currentMenu)
+    switch(currentMenuType){
+      case 'Lunch':
+        setCurrentLunchMenu(menu => [...menu, menuItem ])
+        break;
+      case 'Dinner':
+        setCurrentDinnerMenu(menu => [...menu, menuItem ])
+        break;
+      case 'Drink':
+        setCurrentDrinkMenu(menu => [...menu, menuItem ])
+        break;
+      default:
+        console.log("Something went wrong.")
+    }
     setCurrentIndex(currentIndex + 1)
     return toast.dark(`${menuItem.name} were added to the menu!`);
   }
@@ -29,6 +44,19 @@ function App() {
       return item
     })
     setCurrentMenu(updatedMenu);
+    switch(currentMenuType){
+      case 'Lunch':
+        setCurrentLunchMenu(updatedMenu)
+        break;
+      case 'Dinner':
+        setCurrentDinnerMenu(updatedMenu)
+        break;
+      case 'Drink':
+        setCurrentDrinkMenu(updatedMenu)
+        break;
+      default:
+        console.log("Something went wrong.")
+    }
     return toast.dark(`${updatedItem.name} were successfully updated!`);
   }
 
@@ -36,6 +64,19 @@ function App() {
     const handleDeleteItem = (menuItem) => {
       const updatedMenu = currentMenu.filter(item => item.id !== menuItem.id)
       setCurrentMenu(updatedMenu)
+      switch(currentMenuType){
+        case 'Lunch':
+          setCurrentLunchMenu(updatedMenu)
+          break;
+        case 'Dinner':
+          setCurrentDinnerMenu(updatedMenu)
+          break;
+        case 'Drink':
+          setCurrentDrinkMenu(updatedMenu)
+          break;
+        default:
+          console.log("Something went wrong.")
+      }
       return toast.dark(`${menuItem.name} were removed from the menu!`);
     }
 
@@ -43,18 +84,19 @@ function App() {
     const handleMenuTypeChange = (event) => {
       console.log(event.target.value)
       if(event.target.value === "Lunch"){
-        setCurrentMenu(Lunch.menuItems)
+        setCurrentMenu(currentLunchMenu)
         setCurrentMenuType(Lunch.menuType)
       }
       else if(event.target.value === "Dinner"){
-        setCurrentMenu(Dinner.menuItems)
+        setCurrentMenu(currentDinnerMenu)
         setCurrentMenuType(Dinner.menuType)
       }
       else if(event.target.value === "Drink"){
-        setCurrentMenu(Drink.menuItems)
+        setCurrentMenu(currentDrinkMenu)
         setCurrentMenuType(Drink.menuType)
       }
     }
+
 
   return (
     <div className="App">

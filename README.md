@@ -5,7 +5,7 @@ A user can:
 - View exisiting menu items
 - Create a new menu item
 - Edit an existing menu item
-- Delte an exisiting menu item
+- Delete an exisiting menu item
 - Navigate between different menus
 
 # Built With

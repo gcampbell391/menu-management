@@ -1,14 +1,14 @@
 import React from "react"
 import MenuItem from "./MenuItem"
+import { LunchMenu } from "../data/MealData"
 
 const Menu = () => {
 
     return(
         <div id="menu-items-container">
-            <MenuItem/>
-            <MenuItem/>
-            <MenuItem/>
-            <MenuItem/>
+            {LunchMenu.menuItems.map(menuItem => {
+                return <MenuItem menuItem={menuItem} />
+            })}
         </div>
     )
 }

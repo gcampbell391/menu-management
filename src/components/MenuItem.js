@@ -6,25 +6,26 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const MenuItem = () => {
+const MenuItem = (props) => {
 
+    console.log(props.menuItem)
     return(
-        <Card sx={{ maxWidth: 345, margin: 5 }}>
+        <Card sx={{ maxWidth: 345, margin: 5}}>
             <CardMedia
                 component="img"
-                height="140"
-                image="menu-item.jpg"
-                alt="menu item"
+                height="240"
+                image={props.menuItem && props.menuItem.image ? props.menuItem.image : "N/A"}
+                alt={props.menuItem && props.menuItem.name ? props.menuItem.name : "N/A"}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Hamburger
+                    {props.menuItem && props.menuItem.name ? props.menuItem.name : "N/A"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    $14.99
+                    ${props.menuItem && props.menuItem.price ? props.menuItem.price : "N/A"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    An extremely popular sandwich consisting of one or more meat patties placed in a bun or a bread roll
+                {props.menuItem && props.menuItem.description ? props.menuItem.description : "N/A"}
                 </Typography>
             </CardContent>
             <CardActions>

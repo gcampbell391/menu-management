@@ -39,8 +39,8 @@ const MenuItem = (props) => {
     }
 
     return(
-        <div>
-        <Card  id="menu-item-card" sx={{ width: 345, margin: 5, height:450}}>
+        <div data-testid="menu-item-card">
+        <Card id="menu-item-card" sx={{ width: 345, margin: 5, height:450}}>
             <CardMedia
                 component="img"
                 height="240"
@@ -48,7 +48,7 @@ const MenuItem = (props) => {
                 alt={props.menuItem && props.menuItem.name ? props.menuItem.name : "N/A"}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" >
                     {props.menuItem && props.menuItem.name ? props.menuItem.name : "N/A"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

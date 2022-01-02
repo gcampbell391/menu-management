@@ -50,6 +50,7 @@ const EditItemForm = (props) => {
         <Dialog open={props.openEditItemForm} onClose={props.closeEditItemForm}>
             <DialogTitle>Update {props.menuItem.name}</DialogTitle>
             <DialogContent>
+                <img className="card-image-preview" src={imageURL === "" ? "https://i.ibb.co/7kPCMMY/food-Preview.jpg": imageURL} alt="Card Preview"/>
             <DialogContentText>
                 Please ensure all fields are completed.
             </DialogContentText>

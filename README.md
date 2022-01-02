@@ -20,3 +20,5 @@ There is no backend, API, or database involved. All of the data manipulation is 
     - https://fkhadra.github.io/react-toastify/installation
 - Icons8: Menu logo
     - https://icons8.com/icons/set/menu 
+- Jest: Testing
+    - https://jestjs.io/

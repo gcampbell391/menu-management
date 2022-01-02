@@ -75,6 +75,7 @@ const NewItemForm = (props) => {
         <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Add New Item</DialogTitle>
             <DialogContent>
+                <img class="card-image-preview" src={imageURL === "" ? "https://i.ibb.co/7kPCMMY/food-Preview.jpg": imageURL} alt="Card Preview"/>
             <DialogContentText>
                 Please fill out all the fields below to add a new item to your menu.
             </DialogContentText>
@@ -135,6 +136,8 @@ const NewItemForm = (props) => {
         </div>
     );
 }
+
+
 
 export default NewItemForm
 

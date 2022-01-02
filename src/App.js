@@ -2,6 +2,7 @@ import './App.css';
 import Home from './screens/Home';
 import { Lunch, Dinner, Drink } from "./data/MealData"
 import {useState} from "react"
+import {addItem, deleteItem, updateItem} from "./utils/UpdateItems.js"
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,9 +15,12 @@ function App() {
   const [currentMenuType, setCurrentMenuType] = useState(Lunch.menuType);
   const [currentIndex, setCurrentIndex] = useState(currentMenu.length)
 
+  
   //Handle adding a new item to the menu
   const handleAddItem = (menuItem) => {
-    setCurrentMenu(menu => [...menu, menuItem ])
+    //Call method to add an item
+    const updatedMenu = addItem(menuItem, currentMenu)
+    setCurrentMenu(updatedMenu)
     switch(currentMenuType){
       case 'Lunch':
         setCurrentLunchMenu(menu => [...menu, menuItem ])
@@ -36,13 +40,8 @@ function App() {
 
    //Handle editing an exisiting item 
   const handleEditItem = (updatedItem) => {
-    //Find menu item by id, and update it's fields accordingly
-    const updatedMenu = currentMenu.map(item => {
-      if(item.id === updatedItem.id){
-        return {...item, name: updatedItem.name, description: updatedItem.description, price: updatedItem.price, image: updatedItem.image}
-      }
-      return item
-    })
+    //Call method to update an item
+    const updatedMenu = updateItem(updatedItem, currentMenu)
     setCurrentMenu(updatedMenu);
     switch(currentMenuType){
       case 'Lunch':
@@ -62,7 +61,8 @@ function App() {
 
     //Handle deleting an existing item 
     const handleDeleteItem = (menuItem) => {
-      const updatedMenu = currentMenu.filter(item => item.id !== menuItem.id)
+      //Call method to delete an item
+      const updatedMenu = deleteItem(menuItem, currentMenu)
       setCurrentMenu(updatedMenu)
       switch(currentMenuType){
         case 'Lunch':
@@ -96,7 +96,6 @@ function App() {
         setCurrentMenuType(Drink.menuType)
       }
     }
-
 
   return (
     <div className="App">

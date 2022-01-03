@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import InputAdornment from '@mui/material/InputAdornment';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -68,15 +69,18 @@ const EditItemForm = (props) => {
             />
             <TextField
                 autoFocus
+                type="number"
                 margin="dense"
                 id="price"
                 label="Price"
                 fullWidth
                 variant="standard"
                 required
+                InputProps={{
+                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
                 value={price}
                 onChange={event => setPrice(event.target.value)}
-                inputProps={{ maxLength: 5 }}
             />
             <TextField
                 autoFocus

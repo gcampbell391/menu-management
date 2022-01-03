@@ -22,3 +22,11 @@ There is no backend, API, or database involved. All of the data manipulation is 
     - https://icons8.com/icons/set/menu 
 - Jest: Testing
     - https://jestjs.io/
+- Heroku: Cloud Deployment
+    - https://www.heroku.com/ 
+
+# Deployed Application
+
+The app is deployed on the Heroku free tier, so it may be asleep when first loading up. The app can take a few minutes to load if asleep. 
+
+- https://menu-management-app.herokuapp.com/ 

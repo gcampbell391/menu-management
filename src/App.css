@@ -70,7 +70,7 @@ bottom: 0;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 560px) {
   
   #header-flex-box-left{
     padding-top: 5px;
@@ -81,4 +81,21 @@ bottom: 0;
   }
 }
 
+@media only screen and (max-width: 450px) {
+  
+  #header-flex-box{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+  }
 
+  #header-flex-box-left{
+    margin-top: -15px;
+  }
+
+  #header-flex-box-right{
+    padding-top: 5px;
+  }
+}

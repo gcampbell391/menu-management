@@ -71,7 +71,7 @@ const NewItemForm = (props) => {
     return (
         <div>
         <Button variant="outlined" color="success" startIcon={<AddIcon />} onClick={handleClickOpen}>
-            Add New Item
+            Add Item
         </Button>
         <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Add New Item</DialogTitle>

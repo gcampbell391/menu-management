@@ -51,7 +51,7 @@ const MenuItem = (props) => {
                 <Typography gutterBottom variant="h5" component="div" >
                     {props.menuItem && props.menuItem.name ? props.menuItem.name : "N/A"}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="subtitle2" color="black" >
                     ${props.menuItem && props.menuItem.price ? props.menuItem.price : "N/A"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
